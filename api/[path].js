@@ -14,18 +14,16 @@ module.exports = async (req, res) => {
       .download(path);
     if (error) throw error;
 
-    if (data) {
-      const arr = await data.arrayBuffer();
-      const buffer = Buffer.from(arr, "binary");
-      const contentType = mime.contentType(path);
-      console.log(contentType, data.type);
-      res.setHeader("content-type", data.type);
-      return res.send(buffer);
-    }
+    const arr = await data.arrayBuffer();
+    const buffer = Buffer.from(arr, "binary");
 
-    res.status(404).json({ msg: "Image not found!" });
+    res.setHeader("content-type", data.type);
+    return res.send(buffer);
   } catch (e) {
     console.log(e);
+    if (e.message === "The resource was not found") {
+      return res.status(404).json({ msg: "Image not found!" });
+    }
     res.status(500).json({ msg: "Internal server error!" });
   }
 };
