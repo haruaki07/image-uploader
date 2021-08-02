@@ -1,5 +1,4 @@
 const { createClient } = require("@supabase/supabase-js");
-const mime = require("mime-types");
 
 const supabase = createClient(
   process.env.VITE_SUPABASE_URL,
