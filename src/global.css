@@ -48,3 +48,27 @@ body,
 .h-full {
   height: 100%;
 }
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.btn {
+  outline: none;
+  background-color: var(--theme-color-blue);
+  border-radius: var(--theme-border-radius-md);
+  border: none;
+  padding: 8px 16px;
+  color: #ffffff;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn:active {
+  box-shadow: 0 0 0 3px rgba(47, 129, 237, 0.5);
+}

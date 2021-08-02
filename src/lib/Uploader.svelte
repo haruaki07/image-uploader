@@ -63,8 +63,6 @@
 
         state.set("done");
         result = await getImageUrl(filePath);
-
-        reset();
       }
     } catch (e) {
       console.log(e);
@@ -93,25 +91,30 @@
       <p class="text">File should be Jpeg, Png,...</p>
       <Dropzone on:dropped={(e) => handleUpload(e, true)} />
       <p class="text">Or</p>
-      <label>
+      <br />
+      <label class="btn">
         <input type="file" hidden on:change={handleUpload} accept="image/*" />
         Choose a file
       </label>
     </div>
   {:else if $state === "preview"}
     <Preview src={previewSrc} />
-    <button
-      on:click={() => {
-        reset();
-        state.set("idle");
-      }}>Cancel</button
-    >
-    <button on:click={handleSubmit}>Submit</button>
+    <div class="mt-4">
+      <button
+        class="btn"
+        on:click={() => {
+          reset();
+          state.set("idle");
+        }}>Cancel</button
+      >
+      <button class="btn" on:click={handleSubmit}>Submit</button>
+    </div>
   {:else if $state === "upload"}
     <UploadLoading />
   {:else}
-    <Result src={result} />
+    <Result src={result} fileName={filePath} />
     <button
+      class="btn btn-block mt-4"
       on:click={() => {
         result = null;
         reset();

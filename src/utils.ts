@@ -7,3 +7,8 @@ export const allowedImgType = [
   "image/webp",
   "image/bmp",
 ];
+
+export const getHostname = () => {
+  const url = window.location;
+  return url.protocol + "//" + url.host;
+};
