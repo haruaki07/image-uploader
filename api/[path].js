@@ -1,4 +1,5 @@
 const { createClient } = require("@supabase/supabase-js");
+const mime = require("mime-types");
 
 const supabase = createClient(
   process.env.VITE_SUPABASE_URL,
@@ -14,8 +15,18 @@ module.exports = async (req, res) => {
       .download(path);
     if (error) throw error;
 
-    res.send(data);
+    if (data) {
+      const arr = await data.arrayBuffer();
+      const buffer = Buffer.from(arr, "binary");
+      const contentType = mime.contentType(path);
+      console.log(contentType, data.type);
+      res.setHeader("content-type", data.type);
+      return res.send(buffer);
+    }
+
+    res.status(404).json({ msg: "Image not found!" });
   } catch (e) {
     console.log(e);
+    res.status(500).json({ msg: "Internal server error!" });
   }
 };
