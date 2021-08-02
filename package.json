@@ -17,7 +17,6 @@
     "vite": "^2.3.8"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^1.21.0",
-    "mime-types": "^2.1.32"
+    "@supabase/supabase-js": "^1.21.0"
   }
 }
