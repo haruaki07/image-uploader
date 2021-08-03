@@ -1,3 +1,13 @@
+# image-uploader
+
+<center>
+<img src="https://shareimg.vercel.app/api/Web%20capture_3-8-2021_85529_localhost-krvet9kegrf4kt0uibi.jpeg" width="500" alt="Screenshoot" title="Screenshoot Demo" />
+</center>
+
+Submission for [devchallenges.io/challenges/O2iGT9yBd6xZBrOcVirx](https://devchallenges.io/challenges/O2iGT9yBd6xZBrOcVirx)
+
+[Live Demo](https://shareimg.vercel.app/)
+
 # Svelte + TS + Vite
 
 This template should help get you started developing with Svelte and TypeScript in Vite.
